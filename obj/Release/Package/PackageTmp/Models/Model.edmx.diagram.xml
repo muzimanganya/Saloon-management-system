@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cb7152f70f924943a38eb19e93d015ce" Name="Diagram1">
+        <EntityTypeShape EntityType="SaloonModel.Customer" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaloonModel.Saloon" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaloonModel.Service" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaloonModel.Transaction" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaloonModel.User" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <AssociationConnector Association="SaloonModel.FK_Customers_Customers_CREATOR" ManuallyRouted="false" />
+        <AssociationConnector Association="SaloonModel.FK_Customers_Customers_UPDATER" ManuallyRouted="false" />
+        <AssociationConnector Association="SaloonModel.FK_Transactions_TransactionsC" ManuallyRouted="false" />
+        <AssociationConnector Association="SaloonModel.FK_Saloons_Saloons_C" ManuallyRouted="false" />
+        <AssociationConnector Association="SaloonModel.FK_Saloons_Saloons_U" ManuallyRouted="false" />
+        <AssociationConnector Association="SaloonModel.FK_Transactions_TransactionsSaloon" ManuallyRouted="false" />
+        <AssociationConnector Association="SaloonModel.FK_Services_Services_C" ManuallyRouted="false" />
+        <AssociationConnector Association="SaloonModel.FK_Services_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="SaloonModel.FK_Transactions_TransactionsS" ManuallyRouted="false" />
+        <AssociationConnector Association="SaloonModel.FK_Transactions_TransactionsCreat" ManuallyRouted="false" />
+        <AssociationConnector Association="SaloonModel.FK_Transactions_TransactionsU" ManuallyRouted="false" />
+        <AssociationConnector Association="SaloonModel.FK_Transactions_TransactionsW1" />
+        <EntityTypeShape EntityType="SaloonModel.Payment" Width="1.5" PointX="3" PointY="14.125" />
+        <AssociationConnector Association="SaloonModel.FK_Payments_Payments_EMP" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

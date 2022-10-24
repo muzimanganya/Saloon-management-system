@@ -1,0 +1,109 @@
+﻿
+@model IEnumerable<Saloon.Models.Saloon>
+
+@{
+    ViewBag.Title = "Saloons Sales";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Saloon Sales</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="row">
+    <div class="col-lg-7">
+        <table class="table">
+            <tr>
+                <th>
+                    Saloon ID
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Location)
+                </th>
+                <th>
+                    Total Sales
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Location)
+                    </td>
+                    <td>
+                        @{
+                            int amount = 0;
+                            foreach(var  i in item.Transactions)
+                            {
+                                if (i.CreatedOn.Day == DateTime.Now.Day && i.CreatedOn.Month == DateTime.Now.Month && i.CreatedOn.Year == DateTime.Now.Year) { amount += i.Service1.Amount; }
+                            }
+                        }
+
+                        @String.Format("{0:#,0.##} Rwf", amount)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Sales", "Sales", new { id = item.ID }) |
+                        @Html.ActionLink("Saloon Info", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) 
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+
+    <div class="col-lg-5">
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+            google.load("visualization", "1", { packages: ["corechart"] });
+            google.setOnLoadCallback(drawChart);
+            function drawChart() {
+
+                var url = "@Url.Action("GetSaleStats")";
+
+                var jsonData = $.ajax({
+                    method: 'GET',
+                    url: url,
+                    dataType: 'JSON',
+                    async: false
+                }).responseText;
+
+                jsonData = JSON.parse(jsonData);
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Saloon');
+                data.addColumn('number', 'Revenue');
+                for (i = 0; i<jsonData.length; i++)
+                {
+                    var name = jsonData[i][0].Name;
+                    var val = parseInt(jsonData[i][1].Value);
+                    data.addRow([name, val]);
+                }
+
+
+                var options = {
+                    title: 'Daily Revenue'
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+
+                chart.draw(data, options);
+            }
+        </script>
+
+        <div id="chart_div"></div>
+    </div>
+
+</div>

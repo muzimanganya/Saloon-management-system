@@ -1,0 +1,94 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+
+}
+
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 60px;  
+  background:#f3747f;
+}
+ 
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.saloon-topbar{
+    background-image: url('../Images/j_header_middle.png');
+    height : 54px;
+}
+
+div.home-link 
+{  
+     height:100px; 
+     margin-top:20px;
+     margin-left:20px;
+     text-align:center;
+     padding:20px;
+     float:left;
+}
+
+
+div.home-link a
+{   
+     text-decoration:none; 
+}
+
+
+div.home-link p
+{   
+    color:darkgrey;
+    font-weight:bold;
+}
+ 
+
+.saloon-topbar>h3>a, .saloon-topbar>div>a
+{   
+    color:#f8f1f1;  
+    text-decoration:none;
+    padding-left:30px;
+}
+
+.nav-pos-middle
+{
+    padding-top:17px;
+}
+ 
+.css-promo
+{
+    color:whitesmoke;
+    background-color:lightsteelblue;
+}
+ 
+.calendar{
+    padding:10px;
+    border: solid grey 1px;
+}

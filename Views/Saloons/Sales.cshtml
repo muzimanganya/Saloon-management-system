@@ -1,0 +1,153 @@
+﻿@model PagedList.IPagedList<Saloon.Models.Transaction>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int total = ViewBag.total;
+    int promotions = ViewBag.promotions;
+    String currMethod = ViewContext.RouteData.Values["action"].ToString();
+
+    if (currMethod.ToLower() == "sales")
+    {
+        ViewBag.Title = "Todays's sales";
+    }
+    else
+    {
+        ViewBag.Title = "Month sales";
+    }
+
+    int sn = 0;
+}
+
+<div class="row">
+    <div class="col-lg-2">
+        <br />
+        <br />
+        <br />
+
+        <!-- Search tiket infor-->
+        <div class="search_info">
+            @using (Html.BeginForm("SearchTicket", "Saloons"))
+            {
+                <p>
+                    Search Ticket: @Html.TextBox("SearchString")
+                    <input type="submit" value="Search" />
+                </p>
+            }
+        </div>
+
+        <b>Select Month (@DateTime.Now.ToString("yyyy"))</b>
+        <div class="calendar">
+            <div class="row">
+                <div class="col-lg-6">@Html.ActionLink("Jan", "Month", "Saloons", new { id = "1", saloon = ViewBag.saloon }, new { @class = "btn" })</div>
+                <div class="col-lg-6">@Html.ActionLink("Feb", "Month", "Saloons", new { id = "2", saloon = ViewBag.saloon }, new { @class = "btn" })</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">@Html.ActionLink("Mar", "Month", "Saloons", new { id = "3", saloon = ViewBag.saloon }, new { @class = "btn" })</div>
+                <div class="col-lg-6">@Html.ActionLink("Apr", "Month", "Saloons", new { id = "4", saloon = ViewBag.saloon }, new { @class = "btn" })</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">@Html.ActionLink("May", "Month", "Saloons", new { id = "5", saloon = ViewBag.saloon }, new { @class = "btn" })</div>
+                <div class="col-lg-6">@Html.ActionLink("Jun", "Month", "Saloons", new { id = "6", saloon = ViewBag.saloon }, new { @class = "btn" })</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">@Html.ActionLink("Jul", "Month", "Saloons", new { id = "7", saloon = ViewBag.saloon }, new { @class = "btn" })</div>
+                <div class="col-lg-6">@Html.ActionLink("Aug", "Month", "Saloons", new { id = "8", saloon = ViewBag.saloon }, new { @class = "btn" })</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">@Html.ActionLink("Sept", "Month", "Saloons", new { id = "9", saloon = ViewBag.saloon }, new { @class = "btn" })</div>
+                <div class="col-lg-6">@Html.ActionLink("Oct", "Month", "Saloons", new { id = "10", saloon = ViewBag.saloon }, new { @class = "btn" })</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">@Html.ActionLink("Nov", "Month", "Saloons", new { id = "11", saloon = ViewBag.saloon }, new { @class = "btn" })</div>
+                <div class="col-lg-6">@Html.ActionLink("Dec", "Month", "Saloons", new { id = "12", saloon = ViewBag.saloon }, new { @class = "btn" })</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-10">
+        <h2>@ViewBag.Title</h2>
+
+        <table class="table">
+            <tr>
+                <th>
+                    S/N
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Customer
+                </th>
+                <th>
+                    Saloon
+                </th>
+                <th>
+                    Service
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    Cashier
+                </th>
+                <th>
+                    Employee
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                String cls = item.IsPromotion == 1 ? "css-promo" : "";
+                sn++;
+                <tr class="@cls">
+                    <td>
+                        @sn
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedOn)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer1.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Saloon1.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Service1.type)
+                    </td>
+                    <td>
+                        @String.Format("{0:#,##0 RWF}", item.Service1.Amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User2.Name)
+                    </td>
+                </tr>
+            }
+
+            @{
+                if (promotions != 0 || total != 0)
+                {
+                    <tr class="total">
+                        <td>
+                            <b>Total Income:</b>
+                        </td>
+                        <td colspan="5"></td>
+                        <td colspan="2">
+                            <b>Total Revenue @String.Format("{0:#,##0 RWF}", total)</b><br />
+                            <b>Promotions: @String.Format("{0:#,##0 RWF}", promotions)</b>
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+        <br />
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+        @Html.PagedListPager(Model, page => Url.Action(currMethod, new { page, saloon = ViewBag.saloon }))
+    </div>
+</div>

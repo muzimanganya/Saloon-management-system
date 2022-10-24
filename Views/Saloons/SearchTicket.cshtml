@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Saloon.Models.Transaction>
+
+@{
+    ViewBag.Title = "Search Results";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Search Results</h3>
+<p>
+    @Html.ActionLink("Back to saloons", "Index")
+</p>
+ 
+<table class="table">
+    <tr>
+        <th>
+            Ticket ID
+        </th>
+        <th>
+            Issued On
+        </th> 
+        <th>
+           IS Promotional?
+        </th> 
+        <th>
+            Customer Name
+        </th>
+        <th>
+            Customer Mobile
+        </th>
+        <th>
+            Saloon Name
+        </th>
+        <th>
+            Service
+        </th>
+        <th>
+            Amount
+        </th>  
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedOn)
+        </td>
+        <td>
+            @{
+                String yon = "NO";
+                if(item.IsPromotion==1)
+                {
+                    yon = "YES";
+                }
+            }
+            @yon
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer1.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer1.Mobile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Saloon1.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Service1.type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Service1.Amount) RWF
+        </td>          
+    </tr>
+}
+
+</table>

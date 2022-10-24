@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Saloon.Models.Payment>
+
+@{
+    ViewBag.Title = "Employee Payments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+} 
+<br />
+
+<p>
+    @Html.ActionLink("Create Payroll", "Create", "Payments", null, new {@class="btn btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Employee
+        </th>
+        <th>
+            Month
+        </th>
+        <th>
+           Attended Customers
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rate)
+        </th>
+        <th>
+            Comission 
+        </th> 
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Name)
+        </td> 
+        <td>
+            @item.PayDate.ToString("MMMM, yyyy")
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customers)
+        </td>
+        <td> 
+            @String.Format("{0:0} %", item.Rate)
+        </td>
+        <td> 
+            @String.Format("{0:#,##0 RWF}", item.Amount)
+        </td>
+    </tr>
+}
+
+</table>

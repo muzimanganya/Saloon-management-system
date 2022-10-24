@@ -1,0 +1,79 @@
+C:\Dev\Projects\Saloon\bin\Saloon.dll.config
+C:\Dev\Projects\Saloon\bin\Saloon.dll
+C:\Dev\Projects\Saloon\bin\Saloon.pdb
+C:\Dev\Projects\Saloon\bin\Antlr3.Runtime.dll
+C:\Dev\Projects\Saloon\bin\EntityFramework.dll
+C:\Dev\Projects\Saloon\bin\EntityFramework.SqlServer.dll
+C:\Dev\Projects\Saloon\bin\Microsoft.Web.Infrastructure.dll
+C:\Dev\Projects\Saloon\bin\Newtonsoft.Json.dll
+C:\Dev\Projects\Saloon\bin\PagedList.dll
+C:\Dev\Projects\Saloon\bin\PagedList.Mvc.dll
+C:\Dev\Projects\Saloon\bin\System.Net.Http.Formatting.dll
+C:\Dev\Projects\Saloon\bin\System.Web.Helpers.dll
+C:\Dev\Projects\Saloon\bin\System.Web.Http.dll
+C:\Dev\Projects\Saloon\bin\System.Web.Http.WebHost.dll
+C:\Dev\Projects\Saloon\bin\System.Web.Mvc.dll
+C:\Dev\Projects\Saloon\bin\System.Web.Optimization.dll
+C:\Dev\Projects\Saloon\bin\System.Web.Razor.dll
+C:\Dev\Projects\Saloon\bin\System.Web.WebPages.Deployment.dll
+C:\Dev\Projects\Saloon\bin\System.Web.WebPages.dll
+C:\Dev\Projects\Saloon\bin\System.Web.WebPages.Razor.dll
+C:\Dev\Projects\Saloon\bin\WebGrease.dll
+C:\Dev\Projects\Saloon\bin\Antlr3.Runtime.pdb
+C:\Dev\Projects\Saloon\bin\EntityFramework.xml
+C:\Dev\Projects\Saloon\bin\EntityFramework.SqlServer.xml
+C:\Dev\Projects\Saloon\bin\Newtonsoft.Json.xml
+C:\Dev\Projects\Saloon\bin\PagedList.xml
+C:\Dev\Projects\Saloon\bin\PagedList.Mvc.xml
+C:\Dev\Projects\Saloon\bin\System.Net.Http.Formatting.xml
+C:\Dev\Projects\Saloon\bin\System.Web.Helpers.xml
+C:\Dev\Projects\Saloon\bin\System.Web.Http.xml
+C:\Dev\Projects\Saloon\bin\System.Web.Http.WebHost.xml
+C:\Dev\Projects\Saloon\bin\System.Web.Mvc.xml
+C:\Dev\Projects\Saloon\bin\System.Web.Optimization.xml
+C:\Dev\Projects\Saloon\bin\System.Web.Razor.xml
+C:\Dev\Projects\Saloon\bin\System.Web.WebPages.xml
+C:\Dev\Projects\Saloon\bin\System.Web.WebPages.Deployment.xml
+C:\Dev\Projects\Saloon\bin\System.Web.WebPages.Razor.xml
+C:\Dev\Projects\Saloon\obj\Release\Saloon.dll
+C:\Dev\Projects\Saloon\obj\Release\Saloon.pdb
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\Saloon.dll.config
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\Saloon.dll
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\Saloon.pdb
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\Antlr3.Runtime.dll
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\EntityFramework.dll
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\EntityFramework.SqlServer.dll
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\Microsoft.Web.Infrastructure.dll
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\Newtonsoft.Json.dll
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\PagedList.dll
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\PagedList.Mvc.dll
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\System.Net.Http.Formatting.dll
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\System.Web.Helpers.dll
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\System.Web.Http.dll
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\System.Web.Http.WebHost.dll
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\System.Web.Mvc.dll
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\System.Web.Optimization.dll
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\System.Web.Razor.dll
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\System.Web.WebPages.Deployment.dll
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\System.Web.WebPages.dll
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\System.Web.WebPages.Razor.dll
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\WebGrease.dll
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\Antlr3.Runtime.pdb
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\EntityFramework.xml
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\EntityFramework.SqlServer.xml
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\Newtonsoft.Json.xml
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\PagedList.xml
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\PagedList.Mvc.xml
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\System.Net.Http.Formatting.xml
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\System.Web.Helpers.xml
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\System.Web.Http.xml
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\System.Web.Http.WebHost.xml
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\System.Web.Mvc.xml
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\System.Web.Optimization.xml
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\System.Web.Razor.xml
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\System.Web.WebPages.xml
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\System.Web.WebPages.Deployment.xml
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\bin\System.Web.WebPages.Razor.xml
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\obj\Release\Saloon.csprojResolveAssemblyReference.cache
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\obj\Release\Saloon.dll
+D:\My Own\INTUMWA\Innovys\Projects\Saloon\obj\Release\Saloon.pdb

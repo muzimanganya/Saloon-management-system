@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Welcome";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-lg-6">
+        <br />
+        <div class="home-link  panel panel-default">
+            <a href="@Url.Action("Index", "Users")">
+                <img src="~/Images/icon-48-user.png" /><br />
+                <p>Users</p>
+            </a>
+        </div>
+
+        <div class="home-link  panel panel-default">
+            <a href="@Url.Action("Index", "Services")">
+                <img src="~/Images/icon-48-media.png" /><br />
+                <p>Services</p>
+            </a>
+        </div>
+
+        <div class="home-link  panel panel-default">
+            <a href="@Url.Action("Index", "Saloons")">
+                <img src="~/Images/icon-48-pos.png" /><br />
+                <p>All Sales</p>
+            </a>
+        </div>
+
+        <div class="home-link  panel panel-default">
+            <a href="@Url.Action("Index", "Customers")">
+                <img src="~/Images/icon-48-massmail.png" /><br />
+                <p>Customers</p>
+            </a>
+        </div>
+
+        <div class="home-link  panel panel-default">
+            <a href="@Url.Action("Index", "Payments")">
+                <img src="~/Images/icon-32-inbox.png" /><br />
+                <p>Payroll</p>
+            </a>
+        </div>
+    </div>
+    
+    <div class="col-lg-6">
+        
+    </div>
+</div>

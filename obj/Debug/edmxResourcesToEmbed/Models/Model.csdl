@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SaloonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Mobile" />
+    </Key>
+    <Property Name="Mobile" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Customers_Customers_CREATOR" FromRole="Customers" ToRole="Users" />
+    <NavigationProperty Name="User1" Relationship="Self.FK_Customers_Customers_UPDATER" FromRole="Customers" ToRole="Users" />
+    <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_TransactionsC" FromRole="Customers" ToRole="Transactions" />
+  </EntityType>
+  <EntityType Name="Saloon">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Location" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Saloons_Saloons_C" FromRole="Saloons" ToRole="Users" />
+    <NavigationProperty Name="User1" Relationship="Self.FK_Saloons_Saloons_U" FromRole="Saloons" ToRole="Users" />
+    <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_TransactionsSaloon" FromRole="Saloons" ToRole="Transactions" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="type" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Services_Services_C" FromRole="Services" ToRole="Users" />
+    <NavigationProperty Name="User1" Relationship="Self.FK_Services_Users" FromRole="Services" ToRole="Users" />
+    <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_TransactionsS" FromRole="Services" ToRole="Transactions" />
+    <Property Name="Promotion" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Saloon" Type="Int32" Nullable="false" />
+    <Property Name="Worker" Type="Int32" Nullable="false" />
+    <Property Name="Customer" Type="Int32" Nullable="false" />
+    <Property Name="Service" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="Customer1" Relationship="Self.FK_Transactions_TransactionsC" FromRole="Transactions" ToRole="Customers" />
+    <NavigationProperty Name="Saloon1" Relationship="Self.FK_Transactions_TransactionsSaloon" FromRole="Transactions" ToRole="Saloons" />
+    <NavigationProperty Name="Service1" Relationship="Self.FK_Transactions_TransactionsS" FromRole="Transactions" ToRole="Services" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Transactions_TransactionsCreat" FromRole="Transactions" ToRole="Users" />
+    <NavigationProperty Name="User1" Relationship="Self.FK_Transactions_TransactionsU" FromRole="Transactions" ToRole="Users" />
+    <NavigationProperty Name="User2" Relationship="SaloonModel.FK_Transactions_TransactionsW1" FromRole="Transaction" ToRole="User" />
+    <Property Name="IsPromotion" Type="Int32" Nullable="false" />
+    <Property Name="IsUsed" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="66" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Role" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Customers_Customers_CREATOR" FromRole="Users" ToRole="Customers" />
+    <NavigationProperty Name="Customers1" Relationship="Self.FK_Customers_Customers_UPDATER" FromRole="Users" ToRole="Customers" />
+    <NavigationProperty Name="Saloons" Relationship="Self.FK_Saloons_Saloons_C" FromRole="Users" ToRole="Saloons" />
+    <NavigationProperty Name="Saloons1" Relationship="Self.FK_Saloons_Saloons_U" FromRole="Users" ToRole="Saloons" />
+    <NavigationProperty Name="Services" Relationship="Self.FK_Services_Services_C" FromRole="Users" ToRole="Services" />
+    <NavigationProperty Name="Services1" Relationship="Self.FK_Services_Users" FromRole="Users" ToRole="Services" />
+    <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_TransactionsCreat" FromRole="Users" ToRole="Transactions" />
+    <NavigationProperty Name="Transactions1" Relationship="Self.FK_Transactions_TransactionsU" FromRole="Users" ToRole="Transactions" />
+    <Property Name="Mobile" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Transactions2" Relationship="SaloonModel.FK_Transactions_TransactionsW1" FromRole="User" ToRole="Transaction" />
+    <NavigationProperty Name="Payments" Relationship="SaloonModel.FK_Payments_Payments_EMP" FromRole="User" ToRole="Payment" />
+  </EntityType>
+  <Association Name="FK_Customers_Customers_CREATOR">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Customers" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customers_Customers_UPDATER">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Customers" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_TransactionsC">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Transactions" Type="Self.Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="Mobile" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="Customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Saloons_Saloons_C">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Saloons" Type="Self.Saloon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Saloons">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Saloons_Saloons_U">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Saloons" Type="Self.Saloon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Saloons">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_TransactionsSaloon">
+    <End Role="Saloons" Type="Self.Saloon" Multiplicity="1" />
+    <End Role="Transactions" Type="Self.Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Saloons">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="Saloon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Services_Services_C">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Services" Type="Self.Service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Services">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Services_Users">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Services" Type="Self.Service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Services">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_TransactionsS">
+    <End Role="Services" Type="Self.Service" Multiplicity="1" />
+    <End Role="Transactions" Type="Self.Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Services">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="Service" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_TransactionsCreat">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Transactions" Type="Self.Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_TransactionsU">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Transactions" Type="Self.Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Connection" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Saloons" EntityType="Self.Saloon" />
+    <EntitySet Name="Services" EntityType="Self.Service" />
+    <EntitySet Name="Transactions" EntityType="Self.Transaction" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Customers_Customers_CREATOR" Association="Self.FK_Customers_Customers_CREATOR">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customers_Customers_UPDATER" Association="Self.FK_Customers_Customers_UPDATER">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_TransactionsC" Association="Self.FK_Transactions_TransactionsC">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Saloons_Saloons_C" Association="Self.FK_Saloons_Saloons_C">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Saloons" EntitySet="Saloons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Saloons_Saloons_U" Association="Self.FK_Saloons_Saloons_U">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Saloons" EntitySet="Saloons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_TransactionsSaloon" Association="Self.FK_Transactions_TransactionsSaloon">
+      <End Role="Saloons" EntitySet="Saloons" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Services_Services_C" Association="Self.FK_Services_Services_C">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Services" EntitySet="Services" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Services_Users" Association="Self.FK_Services_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Services" EntitySet="Services" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_TransactionsS" Association="Self.FK_Transactions_TransactionsS">
+      <End Role="Services" EntitySet="Services" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_TransactionsCreat" Association="Self.FK_Transactions_TransactionsCreat">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_TransactionsU" Association="Self.FK_Transactions_TransactionsU">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_TransactionsW1" Association="SaloonModel.FK_Transactions_TransactionsW1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Transaction" EntitySet="Transactions" />
+    </AssociationSet>
+    <EntitySet Name="Payments" EntityType="SaloonModel.Payment" />
+    <AssociationSet Name="FK_Payments_Payments_EMP" Association="SaloonModel.FK_Payments_Payments_EMP">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+    <FunctionImport Name="PaySalaries">
+      <Parameter Name="DATE" Mode="In" Type="String" />
+      <Parameter Name="USER" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <Association Name="FK_Transactions_TransactionsW1">
+    <End Type="SaloonModel.User" Role="User" Multiplicity="1" />
+    <End Type="SaloonModel.Transaction" Role="Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="Worker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="Employee" />
+      <PropertyRef Name="PayDate" />
+    </Key>
+    <Property Name="Employee" Type="Int32" Nullable="false" />
+    <Property Name="PayDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Customers" Type="Int32" Nullable="false" />
+    <Property Name="Rate" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="SaloonModel.FK_Payments_Payments_EMP" FromRole="Payment" ToRole="User" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <Association Name="FK_Payments_Payments_EMP">
+    <End Type="SaloonModel.User" Role="User" Multiplicity="1" />
+    <End Type="SaloonModel.Payment" Role="Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
